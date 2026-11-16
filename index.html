@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="考研副驾">
+<meta name="theme-color" content="#0b1430">
+<title>考研副驾驶 · 313 冲刺</title>
+<style>
+:root{--n0:#060b1c;--n1:#0b1430;--n2:#142350;--s:#7fb4ff;--g:#e9cd93;--paper:#f5ecdb;--ink:#2b3550;--line:#43548a}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;font-family:-apple-system,"PingFang SC",sans-serif}
+body{color:var(--g);background:linear-gradient(160deg,var(--n0),var(--n1) 45%,var(--n2));background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(1.5px 1.5px at 20% 30%,#fff8,transparent),radial-gradient(1px 1px at 70% 20%,#fff6,transparent),radial-gradient(2px 2px at 50% 70%,#9cc,transparent),radial-gradient(1px 1px at 85% 80%,#fff5,transparent),radial-gradient(1.5px 1.5px at 30% 85%,#fff7,transparent);background-size:300px 300px;opacity:.7}
+.app{display:flex;min-height:100vh;position:relative;z-index:1}
+aside{width:86px;flex:0 0 86px;background:#0a1229cc;border-right:1px solid #ffffff14;padding:14px 6px;position:sticky;top:0;height:100vh;overflow:auto}
+.brand{font-size:12px;color:var(--s);text-align:center;margin-bottom:14px;font-weight:700}
+.nav{display:flex;flex-direction:column;gap:6px}
+.nav button{background:none;border:0;color:#9fb0d8;padding:10px 4px;border-radius:14px;font-size:11px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;width:100%}
+.nav button.on{background:#7fb4ff22;color:var(--g);outline:1px dashed var(--s)}
+.nav .ic{font-size:20px}
+main{flex:1;padding:18px;max-width:920px;margin:0 auto;width:100%}
+.page{display:none}.page.on{display:block}
+h2{font-size:20px;margin:4px 0 14px;color:var(--g)}
+.card{background:var(--paper);color:var(--ink);border:2px solid var(--g);border-radius:18px 22px 16px 24px/22px 16px 24px 18px;padding:14px 16px;margin-bottom:12px;box-shadow:3px 4px 0 #0005;filter:url(#wob)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.grow{flex:1;min-width:160px}
+button.act,input,select,textarea{font-family:inherit}
+button.act{background:linear-gradient(135deg,#7fb4ff,#4a7fe0);color:#06122e;border:2px solid #06122e;border-radius:14px 18px 12px 16px;padding:9px 14px;font-weight:700;cursor:pointer;box-shadow:2px 3px 0 #06122e;min-height:40px}
+button.ghost{background:transparent;color:var(--ink);border:2px dashed var(--line);border-radius:14px;padding:9px 12px;cursor:pointer}
+input,select,textarea{width:100%;border:2px solid var(--line);border-radius:12px;padding:10px;background:#fffdf8;color:var(--ink);margin:4px 0;font-size:16px}
+.tag{display:inline-block;background:#7fb4ff22;border:1px dashed var(--s);color:#2b4a9e;border-radius:20px;padding:6px 12px;font-size:13px;margin:2px;cursor:pointer}
+.bar{height:12px;background:#d8cbb0;border-radius:10px;overflow:hidden;margin:8px 0}
+.bar>i{display:block;height:100%;background:linear-gradient(90deg,#4a7fe0,#e9cd93)}
+.kv{display:flex;justify-content:space-between;font-size:14px;margin:4px 0}
+.small{font-size:12px;opacity:.75}
+.big{font-size:34px;font-weight:800;color:#2b4a9e}
+.task h3{margin:0 0 6px;font-size:18px}
+.task .lab{font-size:12px;font-weight:700;color:#2b4a9e;margin-top:8px}
+.warn{background:#fff4d9;border:2px dashed #d8a12a;border-radius:12px;padding:8px 10px;font-size:13px}
+.chat{height:300px;overflow:auto;background:#fbf6ea;border:2px solid var(--line);border-radius:12px;padding:10px;margin:8px 0}
+.msg{margin:6px 0;line-height:1.5}.msg.me{text-align:right;color:#2b4a9e}.msg.ai{color:#233}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+@media(max-width:640px){aside{width:62px;flex-basis:62px;padding:10px 2px}main{padding:12px}.nav button{font-size:9px}.nav .ic{font-size:18px}}
+</style></head><body>
+<svg width="0" height="0"><filter id="wob"><feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.4"/></filter></svg>
+<div class="app">
+<aside><div class="brand">313<br>副驾</div><div class="nav" id="nav"></div></aside>
+<main>
+<section class="page on" id="p-home"><h2>总览 · 今天只做一件事</h2><div id="homeBox"></div></section>
+<section class="page" id="p-comb"><h2>梳子 · 把大白话变成任务卡</h2><div class="card" id="combBox"></div></section>
+<section class="page" id="p-work"><h2>打工 · 接下来最容易的一件</h2><div id="workBox"></div></section>
+<section class="page" id="p-eng"><h2>英语 · 单词与积累</h2><div class="card" id="engBox"></div></section>
+<section class="page" id="p-chat"><h2>答疑 · 分科老师</h2><div class="card" id="chatBox"></div></section>
+<section class="page" id="p-sport"><h2>运动 · 不计入学习预算</h2><div class="card" id="sportBox"></div></section>
+</main></div>
+<script>
+(function(){
+"use strict";
+var MEM={},useMem=false,STORES=["tasks","state","words","mistakes","comb","chat","sport","meta"],db=null;
+function openDB(){return new Promise(function(res){try{var r=indexedDB.open("kaoyan_copilot",1);r.onupgradeneeded=function(){var d=r.result;STORES.forEach(function(s){if(!d.objectStoreNames.contains(s))d.createObjectStore(s,{keyPath:"k"})})};r.onsuccess=function(){db=r.result;res()};r.onerror=function(){useMem=true;res()}}catch(e){useMem=true;res()}})}
+function get(store,k){return new Promise(function(res){if(useMem){res(MEM[store+":"+k]);return}try{var t=db.transaction(store,"readonly").objectStore(store).get(k);t.onsuccess=function(){res(t.result&&t.result.v)};t.onerror=function(){res(MEM[store+":"+k])}}catch(e){res(MEM[store+":"+k])}})}
+function put(store,k,v){MEM[store+":"+k]=v;if(useMem)return Promise.resolve();return new Promise(function(res){try{var t=db.transaction(store,"readwrite").objectStore(store).put({k:k,v:v});t.onsuccess=function(){res()};t.onerror=function(){res()}}catch(e){res()}})}
+var T=[
+ {s:"专业课",r:2,m:0,t:"默一条真题母题线",a:"合书默当天母题线的关键节点，写不全就翻书补一遍",min:"只写这条线的3个节点也算数",fb:"改成看着书抄一遍节点，抄完即停",rg:[10,20]},
+ {s:"专业课",r:3,m:0,t:"搭一段古代史线索",a:"拿一张纸画某朝代的政治/经济/文化三条支线关系",min:"只画一条支线的3个框也算数",fb:"只写关键词，不要求连线",rg:[20,40]},
+ {s:"专业课",r:2,m:1,t:"真题选择5道+订正",a:"限时做5道真题选择，错的回扣母题线",min:"只做3道也算数",fb:"只看答案解析，标出1个盲点",rg:[15,30]},
+ {s:"专业课",r:3,m:1,t:"论述采分点拆解",a:"挑一道真题论述，列出采分点框架不写全文",min:"只列3个采分点也算数",fb:"照着参考答案圈出采分点",rg:[20,40]},
+ {s:"专业课",r:2,m:0,t:"口述一道论述要点",a:"对着空气讲2分钟某题的答题结构",min:"只讲1分钟开场也算数",fb:"写出讲的要点当作字数版",rg:[5,15]},
+ {s:"专业课",r:2,m:1,t:"回扣一道错题母题线",a:"从错题本挑1题，回书定位对应母题线重默",min:"只重读那条线一遍也算数",fb:"把错题和母题线抄在同一行",rg:[10,20]},
+ {s:"英语",r:1,m:0,t:"新背20个单词",a:"过20个新词，遮住中文回忆",min:"只背10个也算数",fb:"只混个脸熟，不求拼写",rg:[10,20]},
+ {s:"英语",r:1,m:0,t:"复习红黄词",a:"把标红/黄的旧词快速过一遍",min:"只过红色词也算数",fb:"只把红词读一遍出声",rg:[8,15]},
+ {s:"英语",r:2,m:0,t:"精翻一句长难句",a:"拆主干+从句，写中文翻译",min:"只找出主干也算数",fb:"只标注谓语动词",rg:[10,20]},
+ {s:"英语",r:3,m:0,t:"写一段作文句并改",a:"写3句主题句，用模板改1句",min:"只写1句也算数",fb:"套用现成模板抄1句",rg:[15,30]},
+ {s:"英语",r:2,m:0,t:"整理5个地道表达",a:"从阅读里摘5个表达并造1句",min:"只摘3个也算数",fb:"只抄下来不造句",rg:[10,20]},
+ {s:"政治",r:2,m:0,t:"默写一条马原原理",a:"合书写原理+方法论，核对",min:"只写原理名称也算数",fb:"看书抄一遍原理",rg:[10,20]},
+ {s:"政治",r:2,m:0,t:"毛中特时间线",a:"按时间排5个会议/事件要点",min:"只排3个也算数",fb:"只读一遍时间线",rg:[10,20]},
+ {s:"政治",r:2,m:0,t:"史纲事件排序",a:"把5个事件按因果串起来",min:"只串3个也算数",fb:"看答案排序并读一遍",rg:[10,20]},
+ {s:"政治",r:1,m:0,t:"思修选择10道",a:"限时做10道选择并订正",min:"只做5道也算数",fb:"只看对错，标1个盲点",rg:[10,20]},
+ {s:"政治",r:1,m:1,t:"当代时政摘抄",a:"看一则时政，摘3个关键词",min:"只摘1个词也算数",fb:"读标题即停",rg:[5,15]},
+ {s:"数学",r:4,m:1,t:"极限基础题3道",a:"做3道极限基础题",min:"只做1道也算数",fb:"只看1道例题解析",rg:[20,40]},
+ {s:"通用",r:1,m:0,t:"写三行启动卡",a:"随便写三行：今天状态/最想做的一件/从哪开始",min:"只写一行也算数",fb:"只写今天的日期和一句话",rg:[3,8]},
+ {s:"通用",r:1,m:0,t:"3分钟呼吸+定一件事",a:"深呼吸3分钟，写出今天最容易开始的一件",min:"只做1分钟呼吸也算数",fb:"闭眼数10个数即停",rg:[3,10]}
+];
+function score(t,st,leftMin,todayCount,lastTouch){var s=50;if(st.energy>=4)s+=t.r*3;else s+=(5-t.r)*4;if(t.m&&!st.material)s-=25;if(lastTouch&&lastTouch[t.s]>=2)s+=12;if(t.rg[1]>leftMin)s-=20;if(todayCount[t.s]>=2)s-=10;return s}
+function recommend(st,cb){Promise.all([get("state","recent"),get("state","lastTouch"),get("tasks","today"),get("state","budget")]).then(function(a){var recent=a[0]||[],lastTouch=a[1]||{},today=a[2]||{},budget=a[3]||60;
+ if(recent.length>=3&&recent.slice(-3).every(function(d){return !d.done})){cb([T[17]]);return}
+ var leftMin=budget,todayCount={};T.forEach(function(t){todayCount[t.s]=today[t.s]||0});
+ var ranked=T.map(function(t){return {t:t,sc:score(t,st,leftMin,todayCount,lastTouch)}}).sort(function(a,b){return b.sc-a.sc});
+ var avoided=Object.keys(lastTouch).filter(function(k){return lastTouch[k]>=2}),picked=[];
+ avoided.forEach(function(s){var f=ranked.find(function(x){return x.t.s===s});if(f&&picked.indexOf(f)<0)picked.push(f)});
+ ranked.forEach(function(x){if(picked.length<4&&picked.indexOf(x)<0)picked.push(x)});
+ cb(picked.slice(0,4).map(function(x){return x.t}));})}
+var PAGES=[["总览","p-home","⌂"],["梳子","p-comb","✂"],["打工","p-work","▤"],["英语","p-eng","Aa"],["答疑","p-chat","✎"],["运动","p-sport","◷"]];
+var nav=document.getElementById("nav");
+PAGES.forEach(function(p,i){var b=document.createElement("button");b.className=i===0?"on":"";b.innerHTML='<span class="ic">'+p[2]+'</span>'+p[0];b.onclick=function(){document.querySelectorAll(".page").forEach(function(e){e.classList.remove("on")});document.getElementById(p[1]).classList.add("on");document.querySelectorAll("#nav button").forEach(function(e){e.classList.remove("on")});b.classList.add("on");renderAll()};nav.appendChild(b)});
+function renderHome(){var box=document.getElementById("homeBox");Promise.all([get("tasks","today"),get("words","c"),get("sport","today"),get("state","recent")]).then(function(a){var today=a[0]||{},words=a[1]||{rev:0,new:0},sport=a[2]||0,recent=a[3]||[];var done=Object.keys(today).reduce(function(x,k){return x+today[k]},0);
+ box.innerHTML='<div class="card"><div class="kv"><b>今日完成</b><span>'+done+' 件</span></div><div class="bar"><i style="width:'+Math.min(100,done*25)+'%"></i></div><div class="small">当前主线：二轮·中国古代史（线索待搭建）｜目标 270</div><div class="tools"><button class="ghost" id="exp">导出数据</button><button class="ghost" id="imp">导入数据</button><input type="file" id="impFile" accept="application/json" style="display:none"></div></div>'+
+ '<div class="row"><div class="card grow"><div class="small">复习词</div><div class="big">'+words.rev+'</div><div class="small">新背 '+words.new+'</div></div><div class="card grow"><div class="small">运动（不计入预算）</div><div class="big">'+sport+'</div><div class="small">分钟</div></div></div>'+
+ '<div class="card"><div class="lab">今日清单</div>'+(done?Object.keys(today).map(function(k){return '<div class="kv"><span>'+k+'</span><span>×'+today[k]+'</span></div>'}).join(""):'<div class="small">还没开始，去「打工」拿第一张卡</div>')+'</div>';
+ document.getElementById("exp").onclick=function(){var chain=Promise.resolve(),dump={};STORES.forEach(function(s){chain=chain.then(function(){return new Promise(function(res){try{var req=db.transaction(s,"readonly").objectStore(s).getAll();req.onsuccess=function(){dump[s]=req.result;res()};req.onerror=function(){res()}}catch(e){res()}})})});chain.then(function(){var blob=new Blob([JSON.stringify(dump)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="考研副驾备份.json";a.click()})};
+ document.getElementById("imp").onclick=function(){document.getElementById("impFile").click()};
+ document.getElementById("impFile").onchange=function(e){var f=e.target.files[0];if(!f)return;var reader=new FileReader();reader.onload=function(){try{var d=JSON.parse(reader.result);var chain=Promise.resolve();STORES.forEach(function(s){chain=chain.then(function(){return new Promise(function(res){if(!d[s])return res();try{var st=db.transaction(s,"readwrite").objectStore(s);d[s].forEach(function(row){st.put(row)});st.transaction.oncomplete=function(){res()};st.transaction.onerror=function(){res()}}catch(e){res()}})})});chain.then(function(){renderAll()})}catch(e){alert("导入失败，文件格式不对")}};reader.readAsText(f)};
+ });}
+function splitCards(plan,tags,cb){var local=function(){var arr=plan.split(/[，。；、\n]+/).filter(Boolean).slice(0,4).map(function(x){return {s:/词|英语|阅读/.test(x)?"英语":/政治|马原|毛中特|史纲/.test(x)?"政治":/史|专业课|线索|论述/.test(x)?"专业课":"通用",r:2,m:0,t:x.slice(0,18),a:x,min:"只做其中最小一步也算数",fb:"做不下去就只看一遍",rg:[10,20]}});cb(arr.length?arr:[T[17]])};
+ if(typeof fetch!=="function")return local();fetch("/api/split",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({plan:plan,tags:tags})}).then(function(r){return r.json()}).then(function(j){cb(j.cards||local())}).catch(local)}
+function renderComb(){var box=document.getElementById("combBox");get("comb","last").then(function(v){v=v||{real:"",plan:""};
+ box.innerHTML='<div class="small">把今天的状态说出来，越随意越好（点选）：</div><div id="tags"><span class="tag" data-t="下午才开始">下午才开始</span><span class="tag" data-t="不方便拿资料">不方便拿资料</span><span class="tag" data-t="有点累">有点累</span><span class="tag" data-t="精力不错">精力不错</span></div>'+
+ '<div class="small">现实情况（可用时间/能否拿资料）：</div><textarea id="real" rows="2">'+v.real+'</textarea>'+
+ '<div class="small">你原本想做的计划（大白话即可）：</div><textarea id="plan" rows="3" placeholder="例：今天想把古代史线索理一下，再背背单词">'+v.plan+'</textarea>'+
+ '<button class="act" id="go">安排 → 生成任务卡</button><div id="combOut"></div>';
+ document.querySelectorAll("#tags .tag").forEach(function(t){t.onclick=function(){t.style.background=t.style.background?"":"#4a7fe0"}});
+ document.getElementById("go").onclick=function(){var tags=[].slice.call(document.querySelectorAll("#tags .tag")).filter(function(t){return t.style.background}).map(function(t){return t.dataset.t});var real=document.getElementById("real").value,plan=document.getElementById("plan").value;put("comb","last",{real:real,plan:plan});put("state","combState",{energy:tags.indexOf("精力不错")>=0?4:tags.indexOf("有点累")>=0?2:3,material:tags.indexOf("不方便拿资料")<0});
+ splitCards(plan,tags,function(cards){document.getElementById("combOut").innerHTML='<div class="small">已拆成 '+cards.length+' 张卡，去「打工」查看：</div>'+cards.map(function(c){return '<div class="warn">· '+c.t+'</div>'}).join("")});};});}
+function markDone(){get("state","recent").then(function(r){r=r||[];r.push({d:Date.now(),done:true});put("state","recent",r.slice(-30))})}
+function renderWork(){var box=document.getElementById("workBox");get("state","combState").then(function(st){st=st||{energy:3,material:true};
+ recommend(st,function(cards){if(!cards.length){box.innerHTML='<div class="card">今天先歇会儿。</div>';return}
+ box.innerHTML=cards.map(function(t,i){return '<div class="task card"><h3>'+(i+1)+'. '+t.t+'</h3><div class="small">'+t.s+' · 预计 '+t.rg[0]+'-'+t.rg[1]+' 分钟</div><div class="lab">动作</div><div>'+t.a+'</div><div class="lab">最小完成版本（做这一步也算数）</div><div>'+t.min+'</div><div class="lab">卡住退路</div><div class="warn">'+t.fb+'</div><div style="margin-top:10px"><button class="act done" data-i="'+i+'">✓ 完成这一步</button></div></div>'}).join("");
+ box.querySelectorAll(".done").forEach(function(b){b.onclick=function(){var c=cards[+b.dataset.i];get("tasks","today").then(function(td){td=td||{};td[c.s]=(td[c.s]||0)+1;put("tasks","today",td);markDone();b.textContent="✓ 已记入今日"})}});});});}
+function renderEng(){var box=document.getElementById("engBox");get("words","c").then(function(c){c=c||{rev:0,new:0};
+ box.innerHTML='<div class="row"><div class="grow"><div class="small">复习</div><div class="big" id="rev">'+c.rev+'</div><button class="act" id="revAdd">+1</button> <button class="ghost" id="revSub">-1</button></div><div class="grow"><div class="small">新背</div><div class="big" id="new">'+c.new+'</div><button class="act" id="newAdd">+1</button> <button class="ghost" id="newSub">-1</button></div></div>'+
+ '<div class="lab">积累（精翻/长难句/作文句/表达/记录）与错题</div><textarea id="engNote" rows="4" placeholder="写一条积累或一道错题…"></textarea><button class="act" id="engSave">存一条</button><div id="engList"></div>';
+ function upd(){document.getElementById("rev").textContent=c.rev;document.getElementById("new").textContent=c.new;put("words","c",c)}
+ document.getElementById("revAdd").onclick=function(){c.rev++;upd()};document.getElementById("revSub").onclick=function(){c.rev=Math.max(0,c.rev-1);upd()};
+ document.getElementById("newAdd").onclick=function(){c.new++;upd()};document.getElementById("newSub").onclick=function(){c.new=Math.max(0,c.new-1);upd()};
+ document.getElementById("engSave").onclick=function(){var t=document.getElementById("engNote").value;if(!t)return;get("words","notes").then(function(n){n=n||[];n.push({t:t,d:Date.now()});put("words","notes",n);document.getElementById("engNote").value="";draw()})};
+ function draw(){get("words","notes").then(function(n){document.getElementById("engList").innerHTML=(n||[]).slice(-6).reverse().map(function(x){return '<div class="kv"><span>'+x.t.slice(0,34)+'</span></div>'}).join("")})}draw();});}
+function renderChat(){var box=document.getElementById("chatBox"),subjects=["英语","政治","专业课","数学"];get("chat","last").then(function(v){v=v||[];
+ box.innerHTML='<div class="row"><select id="sub" class="grow">'+subjects.map(function(s){return '<option>'+s+'</option>'}).join("")+'</select><button class="ghost" id="archive">归档</button></div><div class="chat" id="chatLog"></div><div class="row"><input id="q" class="grow" placeholder="用大白话问，例：古代史线索怎么搭？"><button class="act" id="ask">问</button></div>';
+ var log=document.getElementById("chatLog");function draw(){log.innerHTML=v.slice(-30).map(function(m){return '<div class="msg '+m.r+'">'+(m.r==="me"?"我：":"老师：")+m.t+'</div>'}).join("");log.scrollTop=log.scrollHeight}draw();
+ document.getElementById("ask").onclick=function(){var q=document.getElementById("q").value;if(!q)return;v.push({r:"me",t:q});draw();put("chat","last",v);document.getElementById("q").value="";var sub=document.getElementById("sub").value;
+ if(typeof fetch!=="function"){v.push({r:"ai",t:"（演示）先把问题拆成最小一步：找出最想弄懂的点，只解决它。"});draw();return}
+ fetch("/api/chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({subject:sub,message:q})}).then(function(r){if(!r.body)throw 0;var reader=r.body.getReader(),dec=new TextDecoder(),idx=v.length,got="";v.push({r:"ai",t:""});reader.read().then(function p(d){if(d.done){put("chat","last",v);return}got+=dec.decode(d.value);v[idx]={r:"ai",t:got};draw();reader.read().then(p)})}).catch(function(){v.push({r:"ai",t:"（演示）关于「"+q+"」，先拆成最小一步，只解决它。"});draw()});};
+ document.getElementById("archive").onclick=function(){get("chat","arch").then(function(a){a=a||[];a.push({d:Date.now(),log:v});put("chat","arch",a);v=[];put("chat","last",v);draw()})};});}
+function renderSport(){var box=document.getElementById("sportBox");get("sport","today").then(function(m){m=m||0;
+ box.innerHTML='<div class="big" id="sec">00:00</div><div class="small">本计时不计入学习预算</div><div style="margin:10px 0"><button class="act" id="st">开始</button> <button class="ghost" id="sp">暂停并累计</button> <button class="ghost" id="rs">归零</button></div><div class="small">今日累计：<span id="acc">'+m+'</span> 分钟</div>';
+ var t=0,id=null;function fmt(s){return ("0"+Math.floor(s/60)).slice(-2)+":"+("0"+(s%60)).slice(-2)}
+ document.getElementById("st").onclick=function(){if(id)return;id=setInterval(function(){t++;document.getElementById("sec").textContent=fmt(t)},1000)};
+ document.getElementById("sp").onclick=function(){clearInterval(id);id=null;m+=Math.round(t/60);put("sport","today",m);document.getElementById("acc").textContent=m;t=0;document.getElementById("sec").textContent="00:00"};
+ document.getElementById("rs").onclick=function(){clearInterval(id);id=null;t=0;document.getElementById("sec").textContent="00:00"};});}
+function renderAll(){var map={"p-home":renderHome,"p-comb":renderComb,"p-work":renderWork,"p-eng":renderEng,"p-chat":renderChat,"p-sport":renderSport},on=document.querySelector(".page.on");if(on&&map[on.id])map[on.id]()}
+openDB().then(renderHome);
+})();
+</script></body></html>
